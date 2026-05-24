@@ -1,0 +1,420 @@
+# Scuba Diving Landing Page
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scuba Diving</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f3f3f3;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    header {
+      background: #066da8;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      padding: 18px 0;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .navbar a {
+      transition: 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: #ffd900;
+    }
+
+  
+    .hero {
+      background: #066da8;
+      color: white;
+      padding: 40px 0 70px;
+    }
+
+    .hero-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 430px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero-image img {
+      max-width: 420px;
+      border-radius: 0;
+    }
+
+   
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+ 
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      padding-bottom: 24px;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 1px solid #999;
+      padding-bottom: 3px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      color: #066da8;
+      border-color: #066da8;
+    }
+
+  
+    .blog {
+      background: #e9e9e9;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .blog-content {
+      padding: 18px;
+    }
+
+    .blog-date {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .blog-card h4 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .blog-card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #00293d;
+      color: white;
+      padding-top: 60px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 50px;
+    }
+
+    .footer-title {
+      font-size: 28px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-grid img {
+      height: 90px;
+      object-fit: cover;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.85);
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      padding: 18px 0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 992px) {
+      .hero-content,
+      .footer-content {
+        grid-template-columns: 1fr;
+        display: grid;
+        text-align: center;
+      }
+
+      .hero-image {
+        margin: 0 auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="#">Pages</a>
+        <a href="#">Blog</a>
+        <a href="#">Gallery</a>
+        <a href="#">Elements</a>
+        <a href="#">Contacts</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Enjoy Scuba Diving With Us</h1>
+          <p>
+           <b> We offer a wide variety of scuba diving tours and locations for everyone</b>
+          </p>
+        </div>
+
+        <div class="hero-image">
+          <img src="image 1.png" alt="Diver">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Destinations</h2>
+
+      <div class="cards">
+        <div class="card">
+          <img src="Rectangle 3.png" alt="Maldives">
+          <div class="card-body">
+            <h3>Maldives</h3>
+            <p>True abundance of marine life</p>
+            <a href="#" class="btn">BOOK NOW</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="Rectangle 4.png" alt="Indonesia">
+          <div class="card-body">
+            <h3>Indonesia</h3>
+            <p>The unique marine diversity</p>
+            <a href="#" class="btn">BOOK NOW</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="Rectangle 5.png" alt="Australia">
+          <div class="card-body">
+            <h3>Australia</h3>
+            <p>The world's top scuba destination</p>
+            <a href="#" class="btn">BOOK NOW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog">
+    <div class="container">
+      <h2 class="section-title">Our Blog</h2>
+
+      <div class="cards">
+        <div class="blog-card">
+          <img src="Rectangle 7.png" alt="Blog 1">
+          <div class="blog-content">
+            <div class="blog-date">August 9, 2021</div>
+            <h4>New Caledonia: The Lagoon of All Hopes</h4>
+            <p>
+              As we dived for the very first time in the lagoon of New Caledonia,
+              it felt like another world.
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img src="Rectangle 8.png" alt="Blog 2">
+          <div class="blog-content">
+            <div class="blog-date">August 9, 2021</div>
+            <h4>Scuba Diving in Okinawa: A First-time Guide</h4>
+            <p>
+              It is one of those places where it is not so straightforward to organize
+              a scuba diving trip.
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img src="Rectangle 9.png" alt="Blog 3">
+          <div class="blog-content">
+            <div class="blog-date">August 9, 2021</div>
+            <h4>Shore Diving in Maui & Big Island</h4>
+            <p>
+              The Hawaiian archipelago is full of bucket dives with exciting adventures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 class="footer-title">Gallery</h3>
+        <div class="gallery-grid">
+          <img src="Rectangle 15.png" alt="gallery">
+          <img src="Rectangle 19.png" alt="gallery">
+          <img src="Rectangle 16.png" alt="gallery">
+          <img src="Rectangle 17.png" alt="gallery">
+          <img src="Rectangle 18.png" alt="gallery">
+          <img src="rteq.png" alt="gallery">
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Quick Links</h3>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">What We Offer</a>
+          <a href="#">FAQ</a>
+          <a href="#">Instructors</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer-title">      </h3>
+        <div class="footer-links">
+          <a href="#">Contact Us</a>
+          <a href="#">Blog</a>
+          <a href="#">Gallery</a>
+          <a href="#">Pricing</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2023 Divers. All Rights Reserved. Privacy Policy
+    </div>
+  </footer>
+
+</body>
+</html>
